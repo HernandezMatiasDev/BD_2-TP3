@@ -1102,8 +1102,8 @@ Como `publicacion_id` es la shard key de `comentarios`, la consulta se dirige a 
 
 | Prueba | Consulta | Campo | Shards consultados | Documentos | Tiempo |
 |---|---|---|---|---|---|
-| 1 | `publicaciones` por `autor_id` | shard key (hash) | 1 (`shard2`) | 25 | 3 ms |
-| 2 | `publicaciones` por `autor_id` (otro autor) | shard key (hash) | 1 (`shard3`) | 17 | 4 ms |
+| 1 | `publicaciones` por `autor_id` (otro autor) | shard key (hash) | 1 (`shard2`) | 17 | 4 ms |
+| 2 | `publicaciones` por `autor_id` | shard key (hash) | 1 (`shard3`) | 25 | 3 ms |
 | 3 | `usuarios` por `nombre` | índice, sin hash | 3 | 47 | 12 ms |
 | 4 | `comentarios` por `autor` | sin hash ni índice | 3 | 19.645 | 214 ms |
 | 5 | `comentarios` por `publicacion_id` | shard key (hash) | 1 (`shard2`) | 450 | 4 ms |
