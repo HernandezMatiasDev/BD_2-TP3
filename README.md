@@ -238,6 +238,7 @@ Este script lo uso **cada vez que quiero reiniciar los datos de la base** manten
 📄 [`DeleteAll.js`](./insert/DeleteAll.js)
 
 <img width="751" height="157" alt="borramos todos los datos porque modificamos la carga masiva" src="https://github.com/user-attachments/assets/527f6c06-d841-4f32-a005-88e23a79561b" />
+<img width="1110" height="371" alt="3" src="https://github.com/user-attachments/assets/10fb0c46-12cd-4b51-b7e2-5e8e56f9e8c4" />
 
 
 ### 5.3. Carga masiva de datos (`insertar_datos_masivos.js`)
