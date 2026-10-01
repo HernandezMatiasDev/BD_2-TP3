@@ -598,6 +598,8 @@ El resultado de ese `aggregate` se usa directamente en un `$set` sobre `comentar
 
 <img width="998" height="636" alt="update_7 2" src="https://github.com/user-attachments/assets/baf0d5d2-970f-4dea-959f-30eb2941ea76" />
 
+(como se puede ver, aunque borramos el comentario aun esta en la publicación) 
+
 <img width="757" height="564" alt="update_7 3" src="https://github.com/user-attachments/assets/58c947ea-c35d-41d7-882a-cd3c6eb38c38" />
 
 <img width="1051" height="628" alt="update_7 4" src="https://github.com/user-attachments/assets/3e8897ec-50dc-444c-95d0-0ba7afb24bca" />
