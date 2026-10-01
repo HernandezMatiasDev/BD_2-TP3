@@ -1,0 +1,1 @@
+db.publicaciones.find({ hashtags: { $size: 3 } });

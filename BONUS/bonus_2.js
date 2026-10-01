@@ -1,0 +1,1 @@
+db.publicaciones.find({ ubicacion: { $exists: true } });

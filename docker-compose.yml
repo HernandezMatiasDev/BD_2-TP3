@@ -1,0 +1,56 @@
+version: '3.8'
+
+x-mongo-common: &mongo-common
+  image: mongo:latest
+  restart: always
+
+services:
+
+  haproxy:
+    image: haproxy:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
+    depends_on:
+      - mongos1
+      - mongos2
+
+  # Enrutadores
+  mongos1:
+    <<: *mongo-common
+    hostname: mongos1
+    command: mongos --configdb rs-config/cfg1:27019,cfg2:27019,cfg3:27019 --bind_ip_all
+    depends_on:
+      - cfg1
+      - cfg2
+      - cfg3
+
+  mongos2:
+    <<: *mongo-common
+    hostname: mongos2
+    command: mongos --configdb rs-config/cfg1:27019,cfg2:27019,cfg3:27019 --bind_ip_all
+    depends_on:
+      - cfg1
+      - cfg2
+      - cfg3
+
+  # Replica Set de Configuración
+  cfg1: { <<: *mongo-common, command: mongod --configsvr --replSet rs-config --bind_ip_all --port 27019 }
+  cfg2: { <<: *mongo-common, command: mongod --configsvr --replSet rs-config --bind_ip_all --port 27019 }
+  cfg3: { <<: *mongo-common, command: mongod --configsvr --replSet rs-config --bind_ip_all --port 27019 }
+
+  # shard 1 (Replica Set)
+  s1n1: { <<: *mongo-common, command: mongod --shardsvr --replSet shard1 --bind_ip_all --port 27020 }
+  s1n2: { <<: *mongo-common, command: mongod --shardsvr --replSet shard1 --bind_ip_all --port 27020 }
+  s1n3: { <<: *mongo-common, command: mongod --shardsvr --replSet shard1 --bind_ip_all --port 27020 }
+
+  # shard 2 (Replica Set)
+  s2n1: { <<: *mongo-common, command: mongod --shardsvr --replSet shard2 --bind_ip_all --port 27021 }
+  s2n2: { <<: *mongo-common, command: mongod --shardsvr --replSet shard2 --bind_ip_all --port 27021 }
+  s2n3: { <<: *mongo-common, command: mongod --shardsvr --replSet shard2 --bind_ip_all --port 27021 }
+
+  # shard 3 (Replica Set)
+  s3n1: { <<: *mongo-common, command: mongod --shardsvr --replSet shard3 --bind_ip_all --port 27022 }
+  s3n2: { <<: *mongo-common, command: mongod --shardsvr --replSet shard3 --bind_ip_all --port 27022 }
+  s3n3: { <<: *mongo-common, command: mongod --shardsvr --replSet shard3 --bind_ip_all --port 27022 }

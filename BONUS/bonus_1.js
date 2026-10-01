@@ -1,0 +1,1 @@
+db.usuarios.find({ nombre: { $regex: "^A" } });
