@@ -1116,7 +1116,7 @@ Para comprobar que tener dos enrutadores sirve de algo (sección 1.3), **detuve 
 docker stop basededatos-mongos1-1
 ```
 
-Después repetí la primera consulta (la búsqueda por `autor_id` de la prueba 1). El reporte muestra que **HAProxy mandó la consulta a `mongos2`**, que buscó en el mismo shard (`shard2`) y devolvió los mismos 25 documentos, en 9 ms (contra 3 ms cuando respondía `mongos1`; es una sola medición, así que no le doy mucha importancia a esa diferencia). Es decir, el clúster **siguió funcionando perfectamente** sin intervención manual, solo que ahora atendiendo a través del otro enrutador.
+Después repetí la primera consulta (la búsqueda por `autor_id` de la prueba 2). El reporte muestra que **HAProxy mandó la consulta a `mongos2`**, que buscó en el mismo shard (`shard3`) y devolvió los mismos 25 documentos, en 9 ms (contra 3 ms cuando respondía `mongos1`; es una sola medición, así que no le doy mucha importancia a esa diferencia). Es decir, el clúster **siguió funcionando perfectamente** sin intervención manual, solo que ahora atendiendo a través del otro enrutador.
 
 <img width="377" height="138" alt="debug_6" src="https://github.com/user-attachments/assets/5b93ee9a-d15f-4172-bdc3-88f705b06e8f" />
 
