@@ -1,5 +1,8 @@
 # TP3 – Base de Datos II: Red Social Distribuida con MongoDB
 
+ [Trabajo pracito](./TP_03_Base_de_datos_II_-_Mongo_DB.pdf)
+
+
 Este trabajo consiste en diseñar y levantar una base de datos distribuida en MongoDB para simular una red social (usuarios, publicaciones, comentarios e historias), aplicando conceptos de sharding, replicación, modelado documental e índices.
 
 A continuación se documenta el proceso completo: desde cómo armé la infraestructura hasta las decisiones de diseño que fui tomando (y, en algunos casos, corrigiendo) a medida que avanzaba.
@@ -14,7 +17,8 @@ La arquitectura completa se compone de tres capas, más un balanceador de entrad
 
 <img width="2816" height="1536" alt="gemini_imagen_topologia" src="https://github.com/user-attachments/assets/32fbf8cb-3f72-424e-86d6-f467be955eeb" />
 
-(imagen generada con ia para ilustración) 
+
+    (imagen generada con ia para ilustración) 
 
 ### 1.1. Capa de almacenamiento (los Shards)
 
@@ -64,7 +68,7 @@ Y al momento de correr la carga masiva de datos (que se explica en la próxima s
 
 Este archivo define y levanta los 15 contenedores explicados arriba: 1 HAProxy, 2 `mongos`, 3 `cfg` (config servers) y 9 nodos de datos (3 shards × 3 nodos).
 
-[código](./docker-compose.yml)
+[docker-compose.yml](./docker-compose.yml)
 
 Algunas decisiones de diseño del archivo:
 
