@@ -1,6 +1,6 @@
 # TP3 – Base de Datos II: Red Social Distribuida con MongoDB
 
- [Trabajo pracito](./TP_03_Base_de_datos_II_-_Mongo_DB.pdf)
+ [Trabajo Práctico 03 – MongoDB (consignas)](./TP_03_Base_de_datos_II_-_Mongo_DB.pdf)
 
 
 Este trabajo consiste en diseñar y levantar una base de datos distribuida en MongoDB para simular una red social (usuarios, publicaciones, comentarios e historias), aplicando conceptos de sharding, replicación, modelado documental e índices.
